@@ -64,43 +64,34 @@
             app:layout_constraintTop_toBottomOf="@+id/tx2"
             android:layout_marginTop="15dp"
             app:layout_constraintLeft_toLeftOf="parent">
+
             <RelativeLayout
                 android:id="@+id/informasi1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/rounded"
-                android:padding="13dp"
-                >
+                android:padding="13dp">
+
                 <TextView
                     android:id="@+id/berita1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/berita1"
-                    android:textColor="@color/black"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="8dp"
-                    />
+                    android:text="@string/berita1"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:id="@+id/tgl1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tglberita1"
                     android:layout_below="@+id/berita1"
-                    android:textColor="@color/black"
-                    android:textSize="10sp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="12dp"
-                    />
+                    android:text="@string/tglberita1"
+                    android:textColor="@color/black"
+                    android:textSize="10sp" />
             </RelativeLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <ImageView
-        android:id="@+id/shape2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/shape1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

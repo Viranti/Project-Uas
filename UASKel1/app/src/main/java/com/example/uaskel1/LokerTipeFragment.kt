@@ -11,7 +11,6 @@ import com.example.uaskel1.databinding.FragmentLokerTipeBinding
 
 class LokerTipeFragment : Fragment() {
     lateinit var binding: FragmentLokerTipeBinding
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
