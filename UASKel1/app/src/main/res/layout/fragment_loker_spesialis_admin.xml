@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="32dp"
     android:background="@color/primary"
-    tools:context=".LowionganPekerjaanFragment">
+    tools:context=".LokerSpesialisAdminFragment">
     <ImageView
         android:id="@+id/ic_back"
         android:layout_width="32dp"
@@ -16,20 +16,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         />
 
-    <EditText
-        android:id="@+id/edt_search"
-        android:layout_width="330dp"
-        android:layout_height="40dp"
-        android:background="@drawable/rounded"
-        android:backgroundTint="@color/graysmooth"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="12dp"
-        android:textSize="12sp"
-        android:text="@string/search"
-        android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@+id/ic_back"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
 
     <RelativeLayout
         android:id="@+id/card1"
@@ -38,7 +24,7 @@
         android:background="@drawable/rounded"
         android:backgroundTint="@color/white"
         android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/edt_search"
+        app:layout_constraintTop_toBottomOf="@+id/ic_back"
         app:layout_constraintLeft_toLeftOf="parent"
         >
         <ImageView
@@ -66,7 +52,7 @@
         android:backgroundTint="@color/white"
         android:layout_marginTop="12dp"
         android:layout_marginLeft="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/edt_search"
+        app:layout_constraintTop_toBottomOf="@+id/ic_back"
         app:layout_constraintLeft_toRightOf="@+id/card1"
         >
         <ImageView
@@ -306,6 +292,4 @@
             android:layout_centerHorizontal="true"
             />
     </RelativeLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

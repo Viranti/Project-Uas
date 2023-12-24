@@ -57,7 +57,7 @@ class DaftarFragment : Fragment(R.layout.fragment_daftar) {
                         userData["email"] = email
                         userData["nama"] = nama
                         userData["password"] = password
-                        userData["role"] = "user"
+                        userData["role"] = "admin"
 
                         userId?.let {
                             reference.child(it).setValue(userData)

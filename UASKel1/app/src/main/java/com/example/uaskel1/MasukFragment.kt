@@ -57,7 +57,7 @@ class MasukFragment : Fragment(R.layout.fragment_masuk) {
                                 val role = snapshot.child("role").value.toString()
 
                                 if (role == "admin") {
-                                    val intent = Intent(requireContext(), SplashActivity::class.java)
+                                    val intent = Intent(requireContext(), MainAdminActivity::class.java)
                                     startActivity(intent)
                                     requireActivity().finish()
                                 } else {
