@@ -17,6 +17,7 @@ class PengajuanAdminFragment : Fragment() {
     lateinit var binding: FragmentPengajuanAdminBinding
     private lateinit var ref: DatabaseReference
     private lateinit var pengajuanList: MutableList<Pengajuan>
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
