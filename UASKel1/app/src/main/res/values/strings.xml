@@ -36,7 +36,6 @@
     <string name="descpengajuan2">Terdapat beberapa kepala keluarga yang terdaftar masih tinggal di rumah yang sudah tidak layak untuk ditinggali.  Permasalahan ini terjadi diperkirakan karna rendahnya tingkat pendapatan masyarakat sehingga dirasa harus mendapatkan rumah layak huni  untuk tempat tinggal </string>
     <string name="jdlpengajuan3">Bantuan PKH</string>
     <string name="descpengajuan3">Setelah dilakukan survei tentang kehidupan ekonomi masyarakat maka dapat disimpulkan bahwa terlampir nama masyarakat yang dirasa harus mendapatkan bantuan</string>
-    <string name="tglpengajuan">30 Des 2023</string>
     <string name="berita1">Pemerintah luncurkan program besar atasi ketimpangan sosial.</string>
     <string name="tglberita1">10 Desember 2023</string>
     <string name="it">Informasi Teknologi</string>
@@ -65,4 +64,7 @@
     <string name="judulloker">IT</string>
     <string name="detilloker">Loremipsim</string>
     <string name="tanggalloker">22 Desember 2023</string>
+    <string name="jdlpengajuan">Masukkan Judul Pengajuan</string>
+    <string name="dtlpengajuan">Masukkan Detail Pengajuan</string>
+    <string name="tglpengajuan">Masukkan Tanggal Pengajuan</string>
 </resources>
