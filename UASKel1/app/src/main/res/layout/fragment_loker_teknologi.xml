@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
     android:padding="32dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LokerTeknologiFragment">
@@ -16,37 +17,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         />
-
-    <RelativeLayout
-        android:id="@+id/dataloker"
+    <ListView
+        android:id="@+id/lv_ouput"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/ic_back"
+        android:layout_height="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:padding="24dp"
-        android:background="@drawable/rounded"
-        android:backgroundTint="@color/primary"
-        >
-        <TextView
-            android:id="@+id/ou_jdlloker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="haiii"/>
-        <TextView
-            android:id="@+id/ou_dtlloker"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_height="wrap_content"
-            android:text="haaa"
-            android:layout_toEndOf="@id/ou_jdlloker"/>
-        <TextView
-            android:id="@+id/ou_tglloker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:text="tes"
-            android:layout_toEndOf="@id/ou_dtlloker"/>
-    </RelativeLayout>
+        app:layout_constraintTop_toBottomOf="@+id/btn_tambahloker"
+        android:layout_marginTop="16dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_tambahloker"
@@ -54,7 +31,7 @@
         android:layout_height="wrap_content"
         app:strokeWidth="2dp"
         app:strokeColor="@color/black"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/primary"
         android:text="@string/tambah"
         android:textColor="@color/black"
         android:textSize="16sp"
@@ -64,7 +41,7 @@
         app:iconTint="@color/black"
         app:iconGravity="end"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/dataloker"
+        app:layout_constraintTop_toBottomOf="@+id/ic_back"
         app:layout_constraintLeft_toLeftOf="parent"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.uaskel1
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,65 +9,79 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.example.uaskel1.databinding.FragmentTambahLokerTeknologiBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
-class TambahLokerTeknologiFragment : Fragment() {
-    private lateinit var databaseReference: DatabaseReference
-    private lateinit var edtJudul: EditText
-    private lateinit var edtDetail: EditText
-    private lateinit var edtTanggal: EditText
+class TambahLokerTeknologiFragment : Fragment(), View.OnClickListener {
+    private lateinit var binding: FragmentTambahLokerTeknologiBinding
+    private lateinit var ref: DatabaseReference
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_tambah_loker_teknologi, container, false)
-
-        // Inisialisasi Firebase Database
-        databaseReference = FirebaseDatabase.getInstance().getReference("loker")
-
-        // Inisialisasi views
-        edtJudul = view.findViewById(R.id.edt_dltloker)
-        edtDetail = view.findViewById(R.id.edt_dtlloker)
-        edtTanggal = view.findViewById(R.id.edt_tgloker)
-        val btnTambahLoker: Button = view.findViewById(R.id.btn_tambahloker)
-
-        btnTambahLoker.setOnClickListener {
-            tambahDataLoker()
-        }
-
-        return view
+        binding = FragmentTambahLokerTeknologiBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    private fun tambahDataLoker() {
-        val judul = edtJudul.text.toString().trim()
-        val detail = edtDetail.text.toString().trim()
-        val tanggal = edtTanggal.text.toString().trim()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        if (judul.isNotEmpty() && detail.isNotEmpty() && tanggal.isNotEmpty()) {
-            val idLoker = databaseReference.push().key ?: return
+        ref = FirebaseDatabase.getInstance().getReference("loker")
+        binding.btnTambahloker.setOnClickListener(this)
 
-            // Membuat objek Loker
-            val loker = Loker(idLoker, judul, detail, tanggal)
+    }
 
-            // Menambahkan data ke Firebase Realtime Database
-            databaseReference.child(idLoker).setValue(loker)
-                .addOnSuccessListener {
-                    // Data berhasil ditambahkan
-                    Toast.makeText(requireContext(), "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+    override fun onClick(v: View?) {
+        simpanData()
+        val lokerTeknologi = LokerTeknologiFragment()
+        val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+        transaction.replace(R.id.container_admin, lokerTeknologi)
+        transaction.commit()
+    }
 
-                    // Lakukan sesuatu setelah data ditambahkan, misalnya, bersihkan field input
-                    edtJudul.text.clear()
-                    edtDetail.text.clear()
-                    edtTanggal.text.clear()
+    private fun simpanData() {
+        val judul = binding.edtJdlloker.text.toString().trim()
+        val detail = binding.edtDtlloker.text.toString().trim()
+        val tanggal = binding.edtTgloker.text.toString().trim()
+
+        if (judul.isEmpty() || detail.isEmpty() || tanggal.isEmpty()) {
+            Toast.makeText(
+                requireContext(),
+                "Isi data secara lengkap tidak boleh kosong",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
+        val lokerId = ref.push().key
+        val loker = Loker(lokerId!!, judul, detail, tanggal)
+
+        lokerId?.let {
+            ref.child(it).setValue(loker).addOnCompleteListener { task ->
+                if(isAdded) {
+                    if (task.isSuccessful) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Data berhasil ditambahkan",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Gagal menambahkan data",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
-                .addOnFailureListener {
-                    // Gagal menambahkan data
-                    Toast.makeText(requireContext(), "Gagal menambahkan data: ${it.message}", Toast.LENGTH_SHORT).show()
-                }
-        } else {
-            Toast.makeText(requireContext(), "Harap isi semua field", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
+

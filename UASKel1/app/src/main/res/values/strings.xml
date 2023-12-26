@@ -62,4 +62,7 @@
     <string name="dtlLoker">Masukkan Detail Loker</string>
     <string name="tglLoker">Masukkan Deadline Loker</string>
     <string name="tambah">Tambah</string>
+    <string name="judulloker">IT</string>
+    <string name="detilloker">Loremipsim</string>
+    <string name="tanggalloker">22 Desember 2023</string>
 </resources>
