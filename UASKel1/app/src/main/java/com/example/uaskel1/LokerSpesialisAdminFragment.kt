@@ -15,9 +15,9 @@ class LokerSpesialisAdminFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLokerSpesialisAdminBinding.inflate(layoutInflater)
+        binding = FragmentLokerSpesialisAdminBinding.inflate(inflater, container, false)
         binding.card1.setOnClickListener{
-            val lokerTeknologiFragment = LokerTeknologiFragment()
+            val lokerTeknologiFragment = LokerTeknologiAdminFragment()
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.container_admin,lokerTeknologiFragment)
             transaction.commit()

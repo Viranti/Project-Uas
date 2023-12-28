@@ -12,7 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 
-class LokerAdapter(
+class LokerITAdapterAdmin(
     val lokerContext: Context,
     val layoutResId: Int,
     val lokerList: List<Loker>): ArrayAdapter<Loker>(lokerContext, layoutResId, lokerList) {

@@ -1,27 +1,31 @@
 package com.example.uaskel1
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.uaskel1.databinding.FragmentLokerTeknologiBinding
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import com.example.uaskel1.databinding.FragmentLokerTeknologiAdminBinding
+import com.google.firebase.database.*
 
-class LokerTeknologiFragment : Fragment() {
-    lateinit var binding: FragmentLokerTeknologiBinding
+class LokerTeknologiAdminFragment : Fragment() {
+    private lateinit var binding: FragmentLokerTeknologiAdminBinding
     private lateinit var lokerList: MutableList<Loker>
     private lateinit var ref: DatabaseReference
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLokerTeknologiBinding.inflate(inflater, container, false)
+        binding = FragmentLokerTeknologiAdminBinding.inflate(inflater, container, false)
+        binding.btnTambahloker.setOnClickListener{
+            val tambahLoker = TambahLokerTeknologiFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container_admin, tambahLoker)
+            transaction.commit()
+        }
         return binding.root
     }
 
@@ -42,9 +46,9 @@ class LokerTeknologiFragment : Fragment() {
                                 lokerList.add(it)
                             }
                         }
-                        val adapter = LokerITAdapter(
+                        val adapter = LokerITAdapterAdmin(
                             requireActivity(),
-                            R.layout.item_loker_teknologi,
+                            R.layout.item_loker_admin,
                             lokerList
                         )
                         binding.lvOuput.adapter = adapter
@@ -60,3 +64,4 @@ class LokerTeknologiFragment : Fragment() {
     }
 
 }
+

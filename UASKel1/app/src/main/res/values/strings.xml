@@ -67,4 +67,5 @@
     <string name="jdlpengajuan">Masukkan Judul Pengajuan</string>
     <string name="dtlpengajuan">Masukkan Detail Pengajuan</string>
     <string name="tglpengajuan">Masukkan Tanggal Pengajuan</string>
+    <string name="logout">Keluar</string>
 </resources>

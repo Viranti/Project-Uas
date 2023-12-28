@@ -34,6 +34,12 @@ class BerandaAdminFragment : Fragment() {
             transaction.replace(R.id.container_admin,lokerTipe)
             transaction.commit()
         }
+        binding.card5.setOnClickListener {
+            val informasiTerkiniAdm = InfomasiTerkiniAdminFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container_admin, informasiTerkiniAdm)
+            transaction.commit()
+        }
         return binding.root
     }
 }

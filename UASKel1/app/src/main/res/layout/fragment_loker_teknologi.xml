@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
     android:padding="32dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LokerTeknologiFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:id="@+id/ic_back"
         android:layout_width="32dp"
@@ -18,31 +15,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         />
+    <TextView
+        android:id="@+id/tx1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daftar Lowongan Pekerjaan"
+        app:layout_constraintTop_toBottomOf="@+id/ic_back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintRight_toRightOf="parent"
+        />
     <ListView
         android:id="@+id/lv_ouput"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_tambahloker"
+        app:layout_constraintTop_toBottomOf="@+id/tx1"
         android:layout_marginTop="16dp" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_tambahloker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:strokeWidth="2dp"
-        app:strokeColor="@color/black"
-        android:backgroundTint="@color/primary"
-        android:text="@string/tambah"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:textAlignment="textStart"
-        app:icon="@drawable/ic_plus"
-        app:iconSize="32dp"
-        app:iconTint="@color/black"
-        app:iconGravity="end"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/ic_back"
-        app:layout_constraintLeft_toLeftOf="parent"
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,22 +1,30 @@
 package com.example.uaskel1
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import com.google.firebase.auth.FirebaseAuth
+import com.example.uaskel1.databinding.FragmentAkunBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class AkunFragment : Fragment() {
+    lateinit var binding: FragmentAkunBinding
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_akun, container, false)
+        firebaseAuth = FirebaseAuth.getInstance();
+        binding = FragmentAkunBinding.inflate(inflater, container, false)
+        return binding.root
+
+    }
+
+    fun logout(){
+        firebaseAuth.signOut()
     }
 }

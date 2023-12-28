@@ -36,6 +36,8 @@
         android:id="@+id/lv_outputpengajuanadmin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tx1"
         android:layout_marginTop="16dp" />

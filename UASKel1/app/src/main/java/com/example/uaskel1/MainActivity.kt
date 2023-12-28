@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.tab_home -> changeFragment(BerandaFragment())
                 R.id.tab_faq -> changeFragment(FaqFragment())
+                R.id.tab_akun -> changeFragment(AkunFragment())
                 else -> {}
             }
             true
