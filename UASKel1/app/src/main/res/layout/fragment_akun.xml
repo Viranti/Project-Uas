@@ -33,8 +33,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
-    <ImageView
-        android:id="@+id/shape3"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageViewProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="132dp"
@@ -42,6 +42,18 @@
         android:src="@drawable/fotoprofil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/gantifotoprofil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ganti Foto Profil"
+        android:textSize="18sp"
+        android:textColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewProfile"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
     <TextView
         android:id="@+id/edt_username"
@@ -54,7 +66,7 @@
         android:text="Nama"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shape3"/>
+        app:layout_constraintTop_toBottomOf="@+id/gantifotoprofil"/>
 
     <TextView
         android:id="@+id/edt_email"

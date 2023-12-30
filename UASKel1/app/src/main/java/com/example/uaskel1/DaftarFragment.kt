@@ -53,14 +53,10 @@ class DaftarFragment : Fragment(R.layout.fragment_daftar) {
                         val database = FirebaseDatabase.getInstance()
                         val reference = database.getReference("user")
 
-                        val userData = HashMap<String, Any>()
-                        userData["email"] = email
-                        userData["nama"] = nama
-                        userData["password"] = password
-                        userData["role"] = "admin"
+                        val userKT = User(userId!!, email, nama, password, role= "user")
 
                         userId?.let {
-                            reference.child(it).setValue(userData)
+                            reference.child(it).setValue(userKT)
                                 .addOnSuccessListener {
                                     // Data pengguna berhasil disimpan ke database
                                     Toast.makeText(requireContext(), "Pendaftaran berhasil!", Toast.LENGTH_SHORT).show()
