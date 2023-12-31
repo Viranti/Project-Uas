@@ -1,20 +1,22 @@
 package com.example.uaskel1
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
-class DaftarFragment : Fragment(R.layout.fragment_daftar) {
 
+class TambahUserAdminFragment : Fragment(R.layout.fragment_tambah_user_admin) {
     private lateinit var auth: FirebaseAuth
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -23,14 +25,13 @@ class DaftarFragment : Fragment(R.layout.fragment_daftar) {
         auth = Firebase.auth
 
         // Inisialisasi elemen-elemen UI
-        val namaEditText: EditText = view.findViewById(R.id.edt_nama)
-        val emailEditText: EditText = view.findViewById(R.id.edt_email)
-        val passwordEditText: EditText = view.findViewById(R.id.edt_password)
-        val btnDaftar: Button = view.findViewById(R.id.btn_daftar)
-        val textMasuk: TextView = view.findViewById(R.id.tv_masuk)
+        val namaEditText: EditText = view.findViewById(R.id.edt_namaadmin)
+        val emailEditText: EditText = view.findViewById(R.id.edt_emailadmin)
+        val passwordEditText: EditText = view.findViewById(R.id.edt_passwordadmin)
+        val btnTambah: Button = view.findViewById(R.id.btn_tambahadmin)
 
         // Set listener untuk tombol daftar
-        btnDaftar.setOnClickListener {
+        btnTambah.setOnClickListener {
             val nama = namaEditText.text.toString().trim()
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
@@ -53,22 +54,16 @@ class DaftarFragment : Fragment(R.layout.fragment_daftar) {
                         val database = FirebaseDatabase.getInstance()
                         val reference = database.getReference("user")
 
-                        val userKT = User(userId!!, email, nama, password, role= "user")
+                        val userKT = User(userId!!, email, nama, password, role= "admin")
 
                         userId?.let {
                             reference.child(it).setValue(userKT)
                                 .addOnSuccessListener {
                                     // Data pengguna berhasil disimpan ke database
-                                    Toast.makeText(requireContext(), "Pendaftaran berhasil!", Toast.LENGTH_SHORT).show()
-                                    // Redirect ke halaman utama setelah pendaftaran berhasil
-                                    // Redirect ke halaman utama setelah pendaftaran berhasil
-                                    val masukFragment = MasukFragment()
-                                    val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-
-                                    if (!requireActivity().isFinishing && !requireActivity().isDestroyed) {
-                                        transaction.replace(R.id.splash, masukFragment)
-                                        transaction.commit()
-                                    }
+                                    Toast.makeText(requireContext(), "user berhasil di tambah", Toast.LENGTH_SHORT).show()
+                                    val transaction :FragmentTransaction = requireFragmentManager().beginTransaction()
+                                    transaction.replace(R.id.container_admin, DataUserAdminFragment())
+                                    transaction.commit()
 
                                 }
                                 .addOnFailureListener { e ->
@@ -84,12 +79,7 @@ class DaftarFragment : Fragment(R.layout.fragment_daftar) {
                 }
 
         }
-        textMasuk.setOnClickListener {
-            val masuk = MasukFragment()
-            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.splash,masuk)
-            transaction.commit()
-        }
 
     }
+
 }

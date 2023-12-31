@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class UserAdapter(
@@ -24,19 +25,29 @@ class UserAdapter(
 
         val o_nama: TextView = view.findViewById(R.id.username)
         val o_email: TextView = view.findViewById(R.id.email)
-        val imgEdit: ImageView = view.findViewById(R.id.ic_edituser)
 
         val user = getItem(position)
         o_nama.text = user?.nama
         o_email.text = user?.email
 
+
+        val auth = FirebaseAuth.getInstance()
         val hapusUser: ImageView = view.findViewById(R.id.ic_hapususer)
         hapusUser.setOnClickListener {
-            val userId = user?.id
-            userId?.let {
-                val dbAnggota = FirebaseDatabase.getInstance().getReference("user").child(it)
-                dbAnggota.removeValue()
-                Toast.makeText(userContext, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+            val user = auth.currentUser
+            user?.let {
+                val userId = it.uid
+                // Hapus pengguna dari Firebase Authentication
+                it.delete().addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Hapus data pengguna dari Realtime Database
+                        val dbAnggota = FirebaseDatabase.getInstance().getReference("user").child(userId)
+                        dbAnggota.removeValue()
+                        Toast.makeText(userContext, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(userContext, "Gagal menghapus akun: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
             } ?: run {
                 Toast.makeText(userContext, "ID pengguna tidak tersedia", Toast.LENGTH_SHORT).show()
             }
@@ -44,45 +55,5 @@ class UserAdapter(
 
         return view
     }
+
 }
-
-
-//    private fun updateDialog(user: User) {
-//        val builder = AlertDialog.Builder(userContext)
-//        builder.setTitle("Update Data")
-//        val inflater = LayoutInflater.from((userContext))
-//        val view = inflater.inflate(R.layout.update_user_teknologi, null)
-//
-//        val edtJudul = view.findViewById<EditText>(R.id.editjuduluser)
-//        val edtDetil = view.findViewById<EditText>(R.id.editdetiluser)
-//        val edtTanggal = view.findViewById<EditText>(R.id.edittgluser)
-//
-//        edtJudul.setText(user.judul)
-//        edtDetil.setText(user.detail)
-//        edtTanggal.setText(user.tanggal)
-//
-//        builder.setView(view)
-//
-//        builder.setPositiveButton("Edit"){p0,p1 ->
-//            val dbUser = FirebaseDatabase.getInstance().getReference("user")
-//            val judul = edtJudul.text.toString().trim()
-//            val detil = edtDetil.text.toString().trim()
-//            val tanggal = edtTanggal.text.toString().trim()
-//
-//            if (judul.isEmpty() or detil.isEmpty() or tanggal.isEmpty()){
-//                Toast.makeText(userContext,"Isi data secara lengkap tidak boleh kosong",
-//                    Toast.LENGTH_SHORT)
-//                    .show()
-//                return@setPositiveButton
-//            }
-//
-//            val user = User(user.id, judul, detil , tanggal)
-//
-//            dbUser.child(user.id).setValue(user)
-//            Toast.makeText(userContext,"Data Berhasil di update", Toast.LENGTH_SHORT)
-//                .show()
-//        }
-//        builder.setNeutralButton("Batal"){p0,p1 ->}
-//        val alerts = builder.create()
-//        alerts.show()
-//    }

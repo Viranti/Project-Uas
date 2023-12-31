@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentTransaction
 import com.example.uaskel1.databinding.FragmentDataUserAdminBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -21,6 +22,12 @@ class DataUserAdminFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDataUserAdminBinding.inflate(inflater, container, false)
+        binding.btnPindahtambahuser.setOnClickListener {
+            val tambahUser = TambahUserAdminFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container_admin, tambahUser)
+            transaction.commit()
+        }
         return binding.root
     }
 
