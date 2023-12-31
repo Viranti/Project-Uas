@@ -12,11 +12,11 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 
-class UserAdapter
-    (
+class UserAdapter(
     val userContext: Context,
     val layoutResId: Int,
-    val userList: List<User>): ArrayAdapter<User>(userContext, layoutResId, userList) {
+    userList: List<User>
+) : ArrayAdapter<User>(userContext, layoutResId, userList.filter { it.role == "admin" }) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val layoutInflater: LayoutInflater = LayoutInflater.from(userContext)
@@ -24,13 +24,28 @@ class UserAdapter
 
         val o_nama: TextView = view.findViewById(R.id.username)
         val o_email: TextView = view.findViewById(R.id.email)
+        val imgEdit: ImageView = view.findViewById(R.id.ic_edituser)
 
-        val user =userList[position]
-        o_nama.text = user.nama
-        o_email.text = user.email
+        val user = getItem(position)
+        o_nama.text = user?.nama
+        o_email.text = user?.email
+
+        val hapusUser: ImageView = view.findViewById(R.id.ic_hapususer)
+        hapusUser.setOnClickListener {
+            val userId = user?.id
+            userId?.let {
+                val dbAnggota = FirebaseDatabase.getInstance().getReference("user").child(it)
+                dbAnggota.removeValue()
+                Toast.makeText(userContext, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
+            } ?: run {
+                Toast.makeText(userContext, "ID pengguna tidak tersedia", Toast.LENGTH_SHORT).show()
+            }
+        }
 
         return view
     }
+}
+
 
 //    private fun updateDialog(user: User) {
 //        val builder = AlertDialog.Builder(userContext)
@@ -71,4 +86,3 @@ class UserAdapter
 //        val alerts = builder.create()
 //        alerts.show()
 //    }
-}

@@ -53,7 +53,7 @@ class DaftarFragment : Fragment(R.layout.fragment_daftar) {
                         val database = FirebaseDatabase.getInstance()
                         val reference = database.getReference("user")
 
-                        val userKT = User(userId!!, email, nama, password, role= "user")
+                        val userKT = User(userId!!, email, nama, password, role= "admin")
 
                         userId?.let {
                             reference.child(it).setValue(userKT)

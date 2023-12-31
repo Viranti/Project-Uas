@@ -94,9 +94,7 @@ class AkunFragment : Fragment() {
                         }
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
-                    // Handle kegagalan pengambilan data
                 }
             })
         }
