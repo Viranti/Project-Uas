@@ -28,6 +28,13 @@ class PelatiahanAdminFragment : Fragment() {
             transaction.commit()
 
         }
+        binding.admListPl2.setOnClickListener {
+            val pelatihanLukis = LukisAdminFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container_admin,pelatihanLukis)
+            transaction.commit()
+
+        }
         return binding.root
     }
 

@@ -54,8 +54,12 @@
     <string name="paruhwkt">Paruh Waktu</string>
     <string name="penuhhwkt">Penuh Waktu</string>
     <string name="kontrak">Kontrak</string>
-    <string name="welcomepelatihanlist">Selamat Datang di kelas merias.</string>
-    <string name="desckelasmerias">Terima kasih sudah bergabung dengan kelas belajar merias. Disini kamu dapat menonton berbagai video tutorial meria yang baik dan pastinya menarik, lho !</string>
+    <string name="welcomepelatihanlistmerias">Selamat Datang di kelas merias.</string>
+    <string name="welcomepelatihanlistjahit">Selamat Datang di kelas jahit.</string>
+    <string name="welcomepelatihanlistlukis">Selamat Datang di kelas lukis.</string>
+    <string name="desckelasmerias">Terima kasih sudah bergabung dengan kelas belajar merias. Disini kamu dapat melihat berbagai tips dan triks merias yang baik dan pastinya menarik, lho !</string>
+    <string name="desckelasjahit">Terima kasih sudah bergabung dengan kelas belajar jahit. Disini kamu dapat melihat berbagai tips dan triks menjahit yang baik dan pastinya menarik, lho !</string>
+    <string name="desckelaslukis">Terima kasih sudah bergabung dengan kelas belajar lukis. Disini kamu dapat melihat berbagai tips dan triks melukis yang baik dan pastinya menarik, lho !</string>
     <string name="descberita">Ketua Dewan Perwakilan rakyat (DPR) puan maharani mengungkapkan saat ini indonesia telah mencapai kemajuan yang besar. Dia menyebut indonesia kini masuk dalam 20 negara terbesar dari sisi perekonomian indonesia. “ Masuk dalam kategori negara upper middle income, kita dapat secara bertahap menurunkan kemiskinan dan kesenjangan sosial”. Lalu indonesi juga sudah memiliki industri pengolahan nasional, dapat menjalankan industri stategis.  “ Kita memiliki generasi muda yang berprestasi dan berbagai kemajuan lainnya yang sudah banyak kita capai. </string>
     <string name="jdlLoker">Masukkan Judul Loker</string>
     <string name="dtlLoker">Masukkan Detail Loker</string>

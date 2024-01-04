@@ -18,9 +18,21 @@ class PelatihanFragment : Fragment() {
     ): View? {
         binding = FragmentPelatihanBinding.inflate(layoutInflater)
         binding.list7.setOnClickListener{
-            val pelatiahDetil = PelatihanMeriasFragment()
+            val pelatiahMerias = PelatihanMeriasFragment()
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.container,pelatiahDetil)
+            transaction.replace(R.id.container,pelatiahMerias)
+            transaction.commit()
+        }
+        binding.list1.setOnClickListener {
+            val pelatihanJahit = PelatihanJahitFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container, pelatihanJahit)
+            transaction.commit()
+        }
+        binding.list2.setOnClickListener{
+            val pelatihanLukis = PelatihanLukisFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container,pelatihanLukis)
             transaction.commit()
         }
         return binding.root

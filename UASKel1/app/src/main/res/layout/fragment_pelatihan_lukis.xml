@@ -7,7 +7,7 @@
     android:padding="32dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/primary"
-    tools:context=".PelatihanMeriasFragment">
+    tools:context=".PelatihanLukisFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
-            android:text="@string/welcomepelatihanlistmerias"
+            android:text="@string/welcomepelatihanlistlukis"
             android:textStyle="bold"
             />
 
@@ -46,12 +46,12 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:layout_marginTop="18dp"
-            android:text="@string/desckelasmerias"
+            android:text="@string/desckelaslukis"
             android:layout_below="@+id/tx1"
             />
     </RelativeLayout>
     <ListView
-        android:id="@+id/lv_pelatihanmerias"
+        android:id="@+id/lv_pelatihanlukis"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:divider="@android:color/transparent"
