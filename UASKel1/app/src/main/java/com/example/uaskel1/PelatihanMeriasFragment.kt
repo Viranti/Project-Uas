@@ -1,31 +1,30 @@
 package com.example.uaskel1
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import com.example.uaskel1.databinding.FragmentMeriasAdminBinding
-import com.google.firebase.database.*
+import com.example.uaskel1.databinding.FragmentPelatihanMeriasBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
-class MeriasAdminFragment : Fragment() {
-    lateinit var binding: FragmentMeriasAdminBinding
+class PelatihanMeriasFragment : Fragment() {
+    lateinit var binding: FragmentPelatihanMeriasBinding
     private lateinit var meriasList: MutableList<Merias>
     private lateinit var ref: DatabaseReference
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =FragmentMeriasAdminBinding.inflate(inflater, container, false)
-        binding.btnPindahtambahpelatihanmerias.setOnClickListener{
-            val tambahPelatihan = TambahPelatihanMeriasFragment()
-            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.container_admin,tambahPelatihan)
-            transaction.commit()
-        }
+        binding = FragmentPelatihanMeriasBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -43,12 +42,12 @@ class MeriasAdminFragment : Fragment() {
                                 meriasList.add(it)
                             }
                         }
-                        val adapter = MeriasAdapterAdmin(
+                        val adapter = MeriasAdapter(
                             requireActivity(),
-                            R.layout.item_merias_admin,
+                            R.layout.item_merias,
                             meriasList
                         )
-                        binding.lvOutputpelatihan.adapter = adapter
+                        binding.lvPelatihanmerias.adapter = adapter
                         println("Output: " + meriasList)
                     }
                 }
@@ -59,9 +58,6 @@ class MeriasAdminFragment : Fragment() {
             }
         })
     }
+
+
 }
-
-
-
-
-

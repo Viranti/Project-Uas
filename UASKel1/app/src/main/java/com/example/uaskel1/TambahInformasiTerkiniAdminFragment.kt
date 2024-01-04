@@ -39,7 +39,7 @@ class TambahInformasiTerkiniAdminFragment : Fragment(), View.OnClickListener{
 
     private fun simpanData() {
         val judul = binding.edtJdlinformasi.text.toString().trim()
-        val detail = binding.edtDtlloker.text.toString().trim()
+        val detail = binding.edtDtlinformasi.text.toString().trim()
         val tanggal = binding.edtTglupload.text.toString().trim()
 
         if (judul.isEmpty() || detail.isEmpty() || tanggal.isEmpty()) {
@@ -51,11 +51,11 @@ class TambahInformasiTerkiniAdminFragment : Fragment(), View.OnClickListener{
             return
         }
 
-        val lokerId = ref.push().key
-        val loker = Loker(lokerId!!, judul, detail, tanggal)
+        val informasiId = ref.push().key
+        val informasi = InformasiTerkini(informasiId!!, judul, detail, tanggal)
 
-        lokerId?.let {
-            ref.child(it).setValue(loker).addOnCompleteListener { task ->
+        informasiId?.let {
+            ref.child(it).setValue(informasi).addOnCompleteListener { task ->
                 if(isAdded) {
                     if (task.isSuccessful) {
                         Toast.makeText(

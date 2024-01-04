@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 class LokerITAdapterAdmin(
     val lokerContext: Context,
     val layoutResId: Int,
-    val lokerList: List<Loker>): ArrayAdapter<Loker>(lokerContext, layoutResId, lokerList) {
+    val lokerList: List<LokerIT>): ArrayAdapter<LokerIT>(lokerContext, layoutResId, lokerList) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val layoutInflater: LayoutInflater = LayoutInflater.from(lokerContext)
         val view: View = layoutInflater.inflate(layoutResId, null)
@@ -36,9 +36,9 @@ class LokerITAdapterAdmin(
 
         val hapusLokerImageView: ImageView = view.findViewById(R.id.hapusloker)
         hapusLokerImageView.setOnClickListener {
-            val dbAnggota = FirebaseDatabase.getInstance().getReference("loker")
+            val dbLokerIT = FirebaseDatabase.getInstance().getReference("loker")
                 .child(loker.id)
-            dbAnggota.removeValue()
+            dbLokerIT.removeValue()
 
             Toast.makeText(lokerContext,"Data berhasil di hapus", Toast.LENGTH_SHORT)
                 .show()
@@ -46,7 +46,7 @@ class LokerITAdapterAdmin(
         return view
     }
 
-    private fun updateDialog(loker: Loker) {
+    private fun updateDialog(loker: LokerIT) {
         val builder = AlertDialog.Builder(lokerContext)
         builder.setTitle("Update Data")
         val inflater = LayoutInflater.from((lokerContext))
@@ -75,7 +75,7 @@ class LokerITAdapterAdmin(
                 return@setPositiveButton
             }
 
-            val loker = Loker(loker.id, judul, detil , tanggal)
+            val loker = LokerIT(loker.id, judul, detil , tanggal)
 
             dbLoker.child(loker.id).setValue(loker)
             Toast.makeText(lokerContext,"Data Berhasil di update", Toast.LENGTH_SHORT)

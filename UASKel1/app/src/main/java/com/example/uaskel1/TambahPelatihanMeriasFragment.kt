@@ -1,48 +1,44 @@
 package com.example.uaskel1
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.example.uaskel1.databinding.FragmentTambahPelatihanMeriasBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.example.uaskel1.databinding.FragmentTambahLokerTeknologiBinding
 
-class TambahLokerTeknologiFragment : Fragment(), View.OnClickListener {
-    private lateinit var binding: FragmentTambahLokerTeknologiBinding
+class TambahPelatihanMeriasFragment : Fragment(), View.OnClickListener  {
+    lateinit var binding: FragmentTambahPelatihanMeriasBinding
     private lateinit var ref: DatabaseReference
-
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentTambahLokerTeknologiBinding.inflate(inflater, container, false)
+        binding = FragmentTambahPelatihanMeriasBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ref = FirebaseDatabase.getInstance().getReference("loker")
-        binding.btnTambahloker.setOnClickListener(this)
-
+        ref = FirebaseDatabase.getInstance().getReference("merias")
+        binding.btnTambahpelatihanmerias.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         simpanData()
-        val lokerTeknologi = LokerTeknologiAdminFragment()
+        val merias = MeriasAdminFragment()
         val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-        transaction.replace(R.id.container_admin, lokerTeknologi)
+        transaction.replace(R.id.container_admin, merias)
         transaction.commit()
     }
 
     private fun simpanData() {
-        val judul = binding.edtJdlloker.text.toString().trim()
-        val detail = binding.edtDtlloker.text.toString().trim()
-        val tanggal = binding.edtTgloker.text.toString().trim()
+        val judul = binding.edtJdlpelatihanmerias.text.toString().trim()
+        val detail = binding.edtDetilpelatihanmerias.text.toString().trim()
+        val tanggal = binding.edtTgluploadmerias.text.toString().trim()
 
         if (judul.isEmpty() || detail.isEmpty() || tanggal.isEmpty()) {
             Toast.makeText(
@@ -53,11 +49,11 @@ class TambahLokerTeknologiFragment : Fragment(), View.OnClickListener {
             return
         }
 
-        val lokerId = ref.push().key
-        val loker = LokerIT(lokerId!!, judul, detail, tanggal)
+        val meriasId = ref.push().key
+        val merias = Merias(meriasId!!, judul, detail, tanggal)
 
-        lokerId?.let {
-            ref.child(it).setValue(loker).addOnCompleteListener { task ->
+        meriasId?.let {
+            ref.child(it).setValue(merias).addOnCompleteListener { task ->
                 if(isAdded) {
                     if (task.isSuccessful) {
                         Toast.makeText(
@@ -77,4 +73,3 @@ class TambahLokerTeknologiFragment : Fragment(), View.OnClickListener {
         }
     }
 }
-

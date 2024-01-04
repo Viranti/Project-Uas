@@ -36,9 +36,9 @@ class PengajuanAdapter(
 
         val hapusPengajuanImageView: ImageView = view.findViewById(R.id.ic_hapuspengajuan)
         hapusPengajuanImageView.setOnClickListener {
-            val dbAnggota = FirebaseDatabase.getInstance().getReference("pengajuan")
+            val dbPengajuan = FirebaseDatabase.getInstance().getReference("pengajuan")
                 .child(pengajuan.id)
-            dbAnggota.removeValue()
+            dbPengajuan.removeValue()
 
             Toast.makeText(pengajuanContext,"Data berhasil di hapus", Toast.LENGTH_SHORT)
                 .show()

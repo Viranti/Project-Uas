@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener
 
 class LokerTeknologiFragment : Fragment() {
     lateinit var binding: FragmentLokerTeknologiBinding
-    private lateinit var lokerList: MutableList<Loker>
+    private lateinit var lokerList: MutableList<LokerIT>
     private lateinit var ref: DatabaseReference
 
     override fun onCreateView(
@@ -37,8 +37,8 @@ class LokerTeknologiFragment : Fragment() {
                     if (snapshot.exists()) {
                         lokerList.clear()
                         for (a in snapshot.children) {
-                            val anggota = a.getValue(Loker::class.java)
-                            anggota?.let {
+                            val lokerIT = a.getValue(LokerIT::class.java)
+                            lokerIT?.let {
                                 lokerList.add(it)
                             }
                         }

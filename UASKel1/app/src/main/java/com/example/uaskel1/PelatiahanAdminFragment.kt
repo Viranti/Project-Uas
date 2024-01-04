@@ -21,6 +21,13 @@ class PelatiahanAdminFragment : Fragment() {
             transaction.replace(R.id.container_admin,pelatihanMerias)
             transaction.commit()
         }
+        binding.admListPl1.setOnClickListener {
+            val pelatihanJahit = JahitAdminFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container_admin,pelatihanJahit)
+            transaction.commit()
+
+        }
         return binding.root
     }
 

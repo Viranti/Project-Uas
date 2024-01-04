@@ -7,9 +7,8 @@
     android:background="@color/primary"
     android:padding="32dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MeriasAdminFragment">
+    tools:context=".JahitAdminFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:id="@+id/ic_back"
         android:layout_width="32dp"
@@ -19,13 +18,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         />
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_pindahtambahpelatihanmerias"
+        android:id="@+id/btn_pindahtambahpelatihanjahit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:strokeWidth="2dp"
         app:strokeColor="@color/black"
         android:backgroundTint="@color/primary"
-        android:text="Tambah Merias"
+        android:text="Tambah Pelatihan"
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textAlignment="textStart"
@@ -47,7 +46,7 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pindahtambahpelatihanmerias"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pindahtambahpelatihanjahit"
         app:layout_constraintLeft_toLeftOf="parent"
         />
 

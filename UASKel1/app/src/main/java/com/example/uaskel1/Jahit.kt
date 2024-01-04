@@ -1,6 +1,6 @@
 package com.example.uaskel1
 
-data class InformasiTerkini(
+data class Jahit(
     val id: String,
     val judul: String,
     val detail: String,

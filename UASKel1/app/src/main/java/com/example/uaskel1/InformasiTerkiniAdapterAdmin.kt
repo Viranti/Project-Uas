@@ -37,9 +37,9 @@ class InformasiTerkiniAdapterAdmin(
 
         val hapusInformasiTerkiniImageView: ImageView = view.findViewById(R.id.hapusinformasi)
         hapusInformasiTerkiniImageView.setOnClickListener {
-            val dbAnggota = FirebaseDatabase.getInstance().getReference("informasi")
+            val dbInformasi = FirebaseDatabase.getInstance().getReference("informasi")
                 .child(informasi.id)
-            dbAnggota.removeValue()
+            dbInformasi.removeValue()
 
             Toast.makeText(informasiContext,"Data berhasil di hapus", Toast.LENGTH_SHORT)
                 .show()

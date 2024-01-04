@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
-import com.example.uaskel1.databinding.FragmentTambahLokerTeknologiBinding
 import com.google.firebase.database.DatabaseReference
 import com.example.uaskel1.databinding.FragmentTambahPengajuanBinding
 import com.google.firebase.database.FirebaseDatabase
@@ -50,11 +49,11 @@ class TambahPengajuanFragment : Fragment(), View.OnClickListener {
             return
         }
 
-        val lokerId = ref.push().key
-        val loker = Loker(lokerId!!, judul, detail, tanggal)
+        val pengajuanId = ref.push().key
+        val pengajuan = Pengajuan(pengajuanId!!, judul, detail, tanggal)
 
-        lokerId?.let {
-            ref.child(it).setValue(loker).addOnCompleteListener { task ->
+        pengajuanId?.let {
+            ref.child(it).setValue(pengajuan).addOnCompleteListener { task ->
                 if(isAdded) {
                     if (task.isSuccessful) {
                         Toast.makeText(

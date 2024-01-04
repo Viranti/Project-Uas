@@ -18,7 +18,7 @@ class PelatihanFragment : Fragment() {
     ): View? {
         binding = FragmentPelatihanBinding.inflate(layoutInflater)
         binding.list7.setOnClickListener{
-            val pelatiahDetil = PelatihanListFragment()
+            val pelatiahDetil = PelatihanMeriasFragment()
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.container,pelatiahDetil)
             transaction.commit()
