@@ -4,12 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="32dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FaqFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/tx1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Frequently Asked Questions"
+        android:layout_marginTop="24dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <RelativeLayout
+        android:id="@+id/faq1"
+        android:layout_width="250dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="24dp"
+        android:padding="12dp"
+        android:background="@drawable/rounded_orange"
+        app:layout_constraintTop_toBottomOf="@+id/tx1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/tx2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apa itu fitur pelatihan?"
+            />
+
+        <TextView
+            android:id="@+id/tx3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/primary"
+            android:textAlignment="textEnd"
+            android:text="Fitur pelatihan menyediakan bebrapa tips dan trik dalam berbagai bidang yang ada"
+            android:layout_below="@+id/tx2"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/faq2"
+        android:layout_width="250dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="24dp"
+        android:padding="12dp"
+        android:background="@drawable/rounded_orange"
+        app:layout_constraintTop_toBottomOf="@+id/faq1"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <TextView
+            android:id="@+id/tx4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apa itu fitur pengajuan?"
+            />
+
+        <TextView
+            android:id="@+id/tx5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/primary"
+            android:textAlignment="textEnd"
+            android:text="Fitur pengajuan memberikan kemudahan ke masyarakat dalam menyampaikan aspirasinya seperti memberikan pengajuan pemberian blt atau rumah layak huni"
+            android:layout_below="@+id/tx4"
+            />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

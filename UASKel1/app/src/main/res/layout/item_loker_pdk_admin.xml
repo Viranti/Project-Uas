@@ -4,11 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="24dp"
+    android:background="@drawable/rounded"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="130dp">
 
     <TextView
-        android:id="@+id/lkJudul"
+        android:id="@+id/lkPdkJudul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/judulloker"
@@ -19,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         />
     <TextView
-        android:id="@+id/lkDetail"
+        android:id="@+id/lkPdkDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -27,10 +28,10 @@
         android:text="@string/detilloker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lkJudul"
+        app:layout_constraintTop_toBottomOf="@+id/lkPdkJudul"
         />
     <TextView
-        android:id="@+id/lkTanggal"
+        android:id="@+id/lkPdkTanggal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -38,21 +39,21 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lkDetail"
+        app:layout_constraintTop_toBottomOf="@+id/lkPdkDetail"
         />
 
     <ImageView
-        android:id="@+id/editloker"
+        android:id="@+id/editlokerPdk"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginRight="12dp"
         android:src="@drawable/ic_edit"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/hapusloker"
+        app:layout_constraintRight_toLeftOf="@+id/hapuslokerPdk"
         />
 
     <ImageView
-        android:id="@+id/hapusloker"
+        android:id="@+id/hapuslokerPdk"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:src="@drawable/ic_hapus"
@@ -60,11 +61,5 @@
         app:layout_constraintRight_toRightOf="parent"
         />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="102dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

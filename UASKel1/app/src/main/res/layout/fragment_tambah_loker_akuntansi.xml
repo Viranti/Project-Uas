@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".TambahLokerAkuntansiFragment">
+
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/jdl_loker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/jdlLoker"
+        android:textSize="20sp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/ic_back"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <EditText
+        android:id="@+id/edt_jdllokerakt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Masukkan Judul Loker"
+        android:textSize="16sp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="8dp"
+        android:background="@drawable/rounded"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/jdl_loker"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/dtl_loker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dtlLoker"
+        android:textSize="20sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_jdllokerakt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <EditText
+        android:id="@+id/edt_dtllokerakt"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:hint="Masukkan detil Loker"
+        android:textSize="16sp"
+        android:paddingHorizontal="15dp"
+
+        android:paddingVertical="8dp"
+        android:background="@drawable/rounded"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/dtl_loker"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/tgl_loker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tglLoker"
+
+        android:textSize="20sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_dtllokerakt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <EditText
+        android:id="@+id/edt_tglokerakt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Masukkan Deadline loker"
+        android:textSize="16sp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="8dp"
+        android:background="@drawable/rounded"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/tgl_loker"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btn_tambahlokerakt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/tambah"
+        android:textSize="24dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/primary"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/edt_tglokerakt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,27 +1,30 @@
 package com.example.uaskel1
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.example.uaskel1.databinding.FragmentLokerTeknologiAdminBinding
-import com.google.firebase.database.*
+import com.example.uaskel1.databinding.FragmentLokerPendidikanAdminBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
-class LokerTeknologiAdminFragment : Fragment() {
-    private lateinit var binding: FragmentLokerTeknologiAdminBinding
-    private lateinit var lokerList: MutableList<LokerIT>
+class LokerPendidikanAdminFragment : Fragment() {
+    lateinit var binding: FragmentLokerPendidikanAdminBinding
+    private lateinit var lokerList: MutableList<LokerPendidikan>
     private lateinit var ref: DatabaseReference
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLokerTeknologiAdminBinding.inflate(inflater, container, false)
-        binding.btnTambahloker.setOnClickListener{
-            val tambahLoker = TambahLokerTeknologiFragment()
+        binding = FragmentLokerPendidikanAdminBinding.inflate(inflater, container, false)
+        binding.btnTambahlokerpendidikan.setOnClickListener{
+            val tambahLoker = TambahLokerPendidikanFragment()
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.container_admin, tambahLoker)
             transaction.commit()
@@ -38,7 +41,7 @@ class LokerTeknologiAdminFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ref = FirebaseDatabase.getInstance().getReference("loker")
+        ref = FirebaseDatabase.getInstance().getReference("lokerPendidikan")
         lokerList = mutableListOf()
 
         ref.addValueEventListener(object : ValueEventListener {
@@ -47,14 +50,14 @@ class LokerTeknologiAdminFragment : Fragment() {
                     if (snapshot.exists()) {
                         lokerList.clear()
                         for (a in snapshot.children) {
-                            val lokerIT = a.getValue(LokerIT::class.java)
-                            lokerIT?.let {
+                            val lokerAkt = a.getValue(LokerPendidikan::class.java)
+                            lokerAkt?.let {
                                 lokerList.add(it)
                             }
                         }
-                        val adapter = LokerITAdapterAdmin(
+                        val adapter = LokerPendidikanAdapterAdmin(
                             requireActivity(),
-                            R.layout.item_loker_it_admin,
+                            R.layout.item_loker_pdk_admin,
                             lokerList
                         )
                         binding.lvOuput.adapter = adapter
@@ -62,7 +65,6 @@ class LokerTeknologiAdminFragment : Fragment() {
                     }
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
                 // Handle onCancelled
             }
@@ -70,4 +72,3 @@ class LokerTeknologiAdminFragment : Fragment() {
     }
 
 }
-

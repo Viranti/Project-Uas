@@ -16,10 +16,28 @@ class LokerTipeAdminFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLokerTipeAdminBinding.inflate(layoutInflater)
+        binding.card1.setOnClickListener{
+            val lowonganSpesialis = LokerSpesialisAdminFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container_admin,lowonganSpesialis)
+            transaction.commit()
+        }
+        binding.card2.setOnClickListener{
+            val lowonganSpesialis = LokerSpesialisAdminFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container_admin,lowonganSpesialis)
+            transaction.commit()
+        }
         binding.card3.setOnClickListener{
             val lowonganSpesialis = LokerSpesialisAdminFragment()
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.container_admin,lowonganSpesialis)
+            transaction.commit()
+        }
+        binding.icBack.setOnClickListener{
+            val beranda = BerandaAdminFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container_admin,beranda)
             transaction.commit()
         }
         return binding.root

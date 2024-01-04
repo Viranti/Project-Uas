@@ -22,6 +22,24 @@ class LowionganPekerjaanFragment : Fragment() {
             transaction.replace(R.id.container, lokerTeknologi)
             transaction.commit()
         }
+        binding.card2.setOnClickListener{
+            val lokerTeknologi = LokerAkuntansiFragment()
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container, lokerTeknologi)
+            transaction.commit()
+        }
+        binding.card4.setOnClickListener{
+            val lokerPendidikan = LokerPendidikanFragment()
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container, lokerPendidikan)
+            transaction.commit()
+        }
+        binding.icBack.setOnClickListener{
+            val lokerTipe = LokerTipeFragment()
+            val transaction : FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container, lokerTipe)
+            transaction.commit()
+        }
         return binding.root
 
     }

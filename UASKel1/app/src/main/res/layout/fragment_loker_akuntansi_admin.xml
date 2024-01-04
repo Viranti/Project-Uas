@@ -7,7 +7,7 @@
     android:background="@color/primary"
     android:padding="32dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".LokerTeknologiAdminFragment">
+    tools:context=".LokerAkuntansiAdminFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
@@ -25,11 +25,11 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_tambahloker"
+        app:layout_constraintTop_toBottomOf="@+id/btn_tambahlokerakuntansi"
         android:layout_marginTop="16dp" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_tambahloker"
+        android:id="@+id/btn_tambahlokerakuntansi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:strokeWidth="2dp"

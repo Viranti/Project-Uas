@@ -17,10 +17,28 @@ class LokerTipeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLokerTipeBinding.inflate(layoutInflater)
+        binding.card1.setOnClickListener{
+            val lowonganSpesialis = LowionganPekerjaanFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container,lowonganSpesialis)
+            transaction.commit()
+        }
+        binding.card2.setOnClickListener{
+            val lowonganSpesialis = LowionganPekerjaanFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container,lowonganSpesialis)
+            transaction.commit()
+        }
         binding.card3.setOnClickListener{
             val lowonganSpesialis = LowionganPekerjaanFragment()
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.container,lowonganSpesialis)
+            transaction.commit()
+        }
+        binding.icBack.setOnClickListener{
+            val beranda = BerandaFragment()
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.container,beranda)
             transaction.commit()
         }
         return binding.root
